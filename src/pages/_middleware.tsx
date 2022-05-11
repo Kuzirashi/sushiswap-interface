@@ -25,7 +25,7 @@ const SUBDOMAIN_CHAIN_ID: { [subdomain: string]: string } = {
   [ChainSubdomain.MOONBEAM]: '1284',
 }
 
-const DEFAULT_CHAIN_ID = '1'
+const DEFAULT_CHAIN_ID = '71401'
 
 export function middleware(req: NextRequest) {
   // const response = NextResponse.next()

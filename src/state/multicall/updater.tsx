@@ -31,25 +31,25 @@ async function fetchChunk(
     const { returnData } = await multicall.callStatic.tryBlockAndAggregate(
       false,
       chunk.map((obj) => ({ target: obj.address, callData: obj.callData, gasLimit: obj.gasRequired ?? 1_000_000 })),
-      { blockTag: blockNumber }
+      { blockTag: blockNumber, gasLimit: '12500000' }
     )
 
     if (process.env.NODE_ENV === 'development') {
       // @ts-ignore TYPE NEEDS FIXING
-      returnData.forEach(({ gasUsed, returnData, success }, i) => {
-        if (
-          !success &&
-          returnData.length === 2 &&
-          gasUsed.gte(Math.floor((chunk[i].gasRequired ?? DEFAULT_GAS_REQUIRED) * 0.95))
-        ) {
-          console.warn(
-            `A call failed due to requiring ${gasUsed.toString()} vs. allowed ${
-              chunk[i].gasRequired ?? DEFAULT_GAS_REQUIRED
-            }`,
-            chunk[i]
-          )
-        }
-      })
+      // returnData.forEach(({ gasUsed, returnData, success }, i) => {
+      //   if (
+      //     !success &&
+      //     returnData.length === 2 &&
+      //     gasUsed.gte(Math.floor((chunk[i].gasRequired ?? DEFAULT_GAS_REQUIRED) * 0.95))
+      //   ) {
+      //     console.warn(
+      //       `A call failed due to requiring ${gasUsed.toString()} vs. allowed ${
+      //         chunk[i].gasRequired ?? DEFAULT_GAS_REQUIRED
+      //       }`,
+      //       chunk[i]
+      //     )
+      //   }
+      // })
     }
     return returnData
   } catch (error) {

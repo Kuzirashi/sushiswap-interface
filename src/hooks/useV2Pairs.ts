@@ -41,6 +41,18 @@ export function useV2Pairs(currencies: [Currency | undefined, Currency | undefin
     [tokens]
   )
 
+  // console.log('useV2Pairs getReserves', {
+  //   pairAddresses,
+  //   PAIR_INTERFACE,
+  //   tokens
+  // });
+
+  // if (pairAddresses[0]) {
+  //   // pairAddresses[0] = '0xb57b5f5b46F446134cCF78af5d1705B5BFbb7958';
+  //   pairAddresses[0] = '0xE41Af36349977C3F79C5b13A02b5C5D50d8FDC3C';
+
+  // }
+
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
 
   return useMemo(() => {

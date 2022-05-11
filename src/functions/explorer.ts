@@ -205,6 +205,10 @@ const chains: ChainObject = {
     link: 'https://moonbeam.moonscan.io',
     builder: explorers.moonbeam,
   },
+  [ChainId.GODWOKEN_TESTNET]: {
+    link: 'https://gw-explorer.nervosdao.community',
+    builder: explorers.blockscout,
+  },
 }
 
 export function getExplorerLink(

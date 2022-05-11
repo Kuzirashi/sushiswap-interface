@@ -5,6 +5,7 @@ const Avalanche = 'https://raw.githubusercontent.com/sushiswap/icons/master/netw
 const Bsc = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/bsc.jpg'
 const Fantom = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/fantom.jpg'
 const Goerli = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/goerli.jpg'
+const GodwokenTestnet = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/goerli.jpg'
 const Harmony = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/harmonyone.jpg'
 const Heco = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/heco.jpg'
 const Kovan = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/kovan.jpg'
@@ -52,6 +53,7 @@ export const NETWORK_ICON = {
   [ChainId.FUSE]: Fuse,
   [ChainId.TELOS]: Telos,
   [ChainId.MOONBEAM]: Moonbeam,
+  [ChainId.GODWOKEN_TESTNET]: GodwokenTestnet,
 }
 
 export const NETWORK_LABEL: { [chainId in ChainId]?: string } = {
@@ -84,4 +86,5 @@ export const NETWORK_LABEL: { [chainId in ChainId]?: string } = {
   [ChainId.FUSE]: 'Fuse',
   [ChainId.TELOS]: 'Telos EVM',
   [ChainId.MOONBEAM]: 'Moonbeam',
+  [ChainId.GODWOKEN_TESTNET]: 'Godwoken Testnet',
 }

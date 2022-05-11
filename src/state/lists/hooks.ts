@@ -1,4 +1,4 @@
-import DEFAULT_TOKEN_LIST from '@sushiswap/default-token-list'
+// import DEFAULT_TOKEN_LIST from '@sushiswap/default-token-list'
 import { TokenList } from '@uniswap/token-lists'
 import { UNSUPPORTED_LIST_URLS } from 'app/config/token-lists'
 import UNSUPPORTED_TOKEN_LIST from 'app/constants/token-lists/sushiswap-v2-unsupported.tokenlist.json'
@@ -43,6 +43,24 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
   return map
 }
 
+// console.log({
+//   DEFAULT_TOKEN_LIST
+// });
+
+const DEFAULT_TOKEN_LIST = {
+  name: 'SushiSwap Menu',
+  timestamp: '2022-03-14T22:24:25.382Z',
+  version: {
+    major: 24,
+    minor: 28,
+    patch: 0,
+  },
+  tags: {},
+  logoURI: 'https://raw.githubusercontent.com/sushiswap/art/master/sushi/logo-256x256.png',
+  keywords: ['sushiswap', 'default'],
+  tokens: [],
+}
+
 const TRANSFORMED_DEFAULT_TOKEN_LIST = listToTokenMap(DEFAULT_TOKEN_LIST)
 
 export function useAllLists(): AppState['lists']['byUrl'] {
@@ -81,6 +99,7 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
     122: { ...map1[122], ...map2[122] }, // fuse
     40: { ...map1[40], ...map2[40] }, // telos
     1284: { ...map1[1284], ...map2[1284] }, // moonbeam
+    71401: { ...map1[71401], ...map2[71401] }, // godwoken testnet
   }
 }
 

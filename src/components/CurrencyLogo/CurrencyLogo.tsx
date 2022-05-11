@@ -1,9 +1,25 @@
-import { ChainId, Currency, WNATIVE } from '@sushiswap/core-sdk'
+import { ChainId, Currency, Token } from '@sushiswap/core-sdk'
 import useHttpLocations from 'app/hooks/useHttpLocations'
 import { WrappedTokenInfo } from 'app/state/lists/wrappedTokenInfo'
 import React, { FunctionComponent, useMemo } from 'react'
 
 import Logo, { UNKNOWN_ICON } from '../Logo'
+
+// const WNATIVE = _WNATIVE[ChainId.FANTOM] = /*#__PURE__*/new Token(ChainId.FANTOM, WNATIVE_ADDRESS[ChainId.FANTOM], 18, 'WFTM', 'Wrapped FTM');
+
+const WNATIVE_ADDRESS = {
+  [ChainId.GODWOKEN_TESTNET]: '0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE',
+}
+
+const WNATIVE = {
+  [ChainId.GODWOKEN_TESTNET]: new Token(
+    ChainId.GODWOKEN_TESTNET,
+    WNATIVE_ADDRESS[ChainId.GODWOKEN_TESTNET],
+    18,
+    'wCKB',
+    'Wrapped CKB'
+  ),
+}
 
 const BLOCKCHAIN = {
   [ChainId.ETHEREUM]: 'ethereum',
@@ -24,6 +40,7 @@ const BLOCKCHAIN = {
   [ChainId.AVALANCHE]: 'avalanche',
   [ChainId.MOONBEAM]: 'moonbeam',
   [ChainId.HARDHAT]: 'hardhat',
+  [ChainId.GODWOKEN_TESTNET]: 'godwoken',
 }
 
 // @ts-ignore TYPE NEEDS FIXING
@@ -101,6 +118,7 @@ const LOGO: Record<ChainId, string> = {
   [ChainId.TELOS]: TelosLogo,
   [ChainId.HARDHAT]: EthereumLogo,
   [ChainId.MOONBEAM]: MoonbeamLogo,
+  [ChainId.GODWOKEN_TESTNET]: EthereumLogo,
 }
 
 export interface CurrencyLogoProps {
